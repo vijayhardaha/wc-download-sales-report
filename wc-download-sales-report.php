@@ -3,7 +3,7 @@
  * Plugin Name: WooCommerce Download Sales Report
  * Plugin URI: https://twitter.com/vijayhardaha/
  * Description: This plugin simply adds a report menu to display & download WooCommerce sales report by different filters.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Vijay Hardaha
  * Author URI: https://twitter.com/vijayhardaha/
  * License: GPL-3.0+
