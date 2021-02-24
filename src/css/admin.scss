@@ -410,6 +410,7 @@ $progress-active-color: darken($progress-bullet-color, 20%);
     .side-panel-content {
       width: 783px;
       max-width: 100%;
+      min-height: 100%;
       margin-left: auto;
       transition: transform 0.2s ease;
       transform: translateX(100%);
