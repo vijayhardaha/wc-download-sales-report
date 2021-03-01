@@ -1,6 +1,6 @@
 {
   "name": "wordpress-plugin-boilerplate-gulp",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Wordpress starter pack with pre-configured Gulp to setup custom Wordpress Plugin Boilerplate in a minute.",
   "main": "gulpfile.js",
   "scripts": {

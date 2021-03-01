@@ -2,7 +2,7 @@
 
 const pluginInfo = {
   "name": "WooCommerce Download Sales Report",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "domain": "wc-download-sales-report"
 };
 
