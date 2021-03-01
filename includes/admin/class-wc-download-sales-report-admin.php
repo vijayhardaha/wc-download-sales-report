@@ -135,8 +135,8 @@ class WC_Download_Sales_Report_Admin {
 	private function get_settings() {
 		$default = array(
 			'report_time'  => '30d',
-			'report_start' => gmdate( 'Y-m-d', strtotime( date_i18n( 'Y-m-d' ) ) - ( 86400 * 31 ) ),
-			'report_end'   => gmdate( 'Y-m-d', strtotime( date_i18n( 'Y-m-d' ) ) - 86400 ),
+			'report_start' => gmdate( 'Y-m-d', strtotime( 'today midnight' ) - MONTH_IN_SECONDS ),
+			'report_end'   => gmdate( 'Y-m-d', strtotime( 'today midnight' ) + DAY_IN_SECONDS - 1 ),
 			'order_status' => array( 'wc-processing', 'wc-on-hold', 'wc-completed' ),
 			'products'     => 'all',
 			'product_cats' => array(),
@@ -182,17 +182,21 @@ class WC_Download_Sales_Report_Admin {
 		);
 
 		$report_times = array(
-			'0d'     => __( 'Today', 'wc-download-sales-report' ),
-			'1d'     => __( 'Yesterday', 'wc-download-sales-report' ),
-			'7d'     => __( 'Previous 7 days (excluding today)', 'wc-download-sales-report' ),
-			'30d'    => __( 'Previous 30 days (excluding today)', 'wc-download-sales-report' ),
-			'0cm'    => __( 'Current calendar month', 'wc-download-sales-report' ),
-			'1cm'    => __( 'Previous calendar month', 'wc-download-sales-report' ),
-			'+7d'    => __( 'Next 7 days (future dated orders)', 'wc-download-sales-report' ),
-			'+30d'   => __( 'Next 30 days (future dated orders)', 'wc-download-sales-report' ),
-			'+1cm'   => __( 'Next calendar month (future dated orders)', 'wc-download-sales-report' ),
-			'all'    => __( 'All time', 'wc-download-sales-report' ),
-			'custom' => __( 'Custom date range', 'wc-download-sales-report' ),
+			'custom'         => __( 'Custom Date Range', 'wc-download-sales-report' ),
+			'today'          => __( 'Today Orders', 'wc-download-sales-report' ),
+			'yesterday'      => __( 'Yesterday Orders', 'wc-download-sales-report' ),
+			'last-3-days'    => __( 'Last 3 Days Orders (excluding today)', 'wc-download-sales-report' ),
+			'last-7-days'    => __( 'Last 7 Days Orders (excluding today)', 'wc-download-sales-report' ),
+			'last-14-days'   => __( 'Last 14 Days Orders (excluding today)', 'wc-download-sales-report' ),
+			'last-30-days'   => __( 'Last 30 Days Orders (excluding today)', 'wc-download-sales-report' ),
+			'this-month'     => __( 'This Month Orders (including today)', 'wc-download-sales-report' ),
+			'last-month'     => __( 'Last Month Orders', 'wc-download-sales-report' ),
+			'last-3-months'  => __( 'Last 3 Months Orders (excluding current month)', 'wc-download-sales-report' ),
+			'last-6-months'  => __( 'Last 6 Months Orders (excluding current month)', 'wc-download-sales-report' ),
+			'last-12-months' => __( 'Last 12 Months Orders (excluding current month)', 'wc-download-sales-report' ),
+			'this-year'      => __( 'This Year Orders', 'wc-download-sales-report' ),
+			'last-year'      => __( 'Last Year Orders', 'wc-download-sales-report' ),
+			'all'            => __( 'All time', 'wc-download-sales-report' ),
 		);
 
 		$orderby_fields = array(
@@ -408,6 +412,8 @@ class WC_Download_Sales_Report_Admin {
 
 			$settings = array(
 				'report_time'  => isset( $_POST['report_time'] ) ? sanitize_text_field( wp_unslash( $_POST['report_time'] ) ) : '',
+				'report_start' => isset( $_POST['report_start'] ) ? sanitize_text_field( wp_unslash( $_POST['report_start'] ) ) : '',
+				'report_end'   => isset( $_POST['report_end'] ) ? sanitize_text_field( wp_unslash( $_POST['report_end'] ) ) : '',
 				'order_status' => isset( $_POST['order_status'] ) ? array_map( 'sanitize_text_field', wp_unslash( $_POST['order_status'] ) ) : array(),
 				'products'     => isset( $_POST['products'] ) ? sanitize_text_field( wp_unslash( $_POST['products'] ) ) : '',
 				'product_cats' => isset( $_POST['product_cats'] ) ? array_map( 'absint', wp_unslash( $_POST['product_cats'] ) ) : array(),
@@ -619,47 +625,73 @@ class WC_Download_Sales_Report_Admin {
 			}
 		}
 
-		// Calculate report start and end dates (timestamps).
+		$midnight  = strtotime( 'today midnight' );
+		$postnight = $midnight + DAY_IN_SECONDS - 1;
+
 		switch ( $settings['report_time'] ) {
-			case '0d':
-				$end_date   = strtotime( 'midnight', strtotime( date_i18n( 'Y-m-d' ) ) );
-				$start_date = $end_date;
+			case 'today':
+				$start_date = $midnight;
+				$end_date   = $postnight;
 				break;
-			case '1d':
-				$end_date   = strtotime( 'midnight', strtotime( date_i18n( 'Y-m-d' ) ) ) - 86400;
-				$start_date = $end_date;
+			case 'yesterday':
+				$start_date = $midnight - DAY_IN_SECONDS;
+				$end_date   = $start_date + DAY_IN_SECONDS - 1;
 				break;
-			case '7d':
-				$end_date   = strtotime( 'midnight', strtotime( date_i18n( 'Y-m-d' ) ) ) - 86400;
-				$start_date = $end_date - ( 86400 * 6 );
+			case 'last-3-days':
+				$start_date = $midnight - ( 3 * DAY_IN_SECONDS );
+				$end_date   = $midnight - 1;
 				break;
-			case '1cm':
-				$start_date = strtotime( gmdate( 'Y-m', strtotime( date_i18n( 'Y-m-d' ) ) ) . '-01 midnight -1month' );
-				$end_date   = strtotime( '+1month', $start_date ) - 86400;
+			case 'last-7-days':
+				$start_date = $midnight - ( 7 * DAY_IN_SECONDS );
+				$end_date   = $midnight - 1;
 				break;
-			case '0cm':
-				$start_date = strtotime( gmdate( 'Y-m', strtotime( date_i18n( 'Y-m-d' ) ) ) . '-01 midnight' );
-				$end_date   = strtotime( '+1month', $start_date ) - 86400;
+			case 'last-14-days':
+				$start_date = $midnight - ( 14 * DAY_IN_SECONDS );
+				$end_date   = $midnight - 1;
 				break;
-			case '+1cm':
-				$start_date = strtotime( gmdate( 'Y-m', strtotime( date_i18n( 'Y-m-d' ) ) ) . '-01 midnight +1month' );
-				$end_date   = strtotime( '+1month', $start_date ) - 86400;
+			case 'last-30-days':
+				$start_date = $midnight - ( 30 * DAY_IN_SECONDS );
+				$end_date   = $midnight - 1;
 				break;
-			case '+7d':
-				$start_date = strtotime( 'midnight', strtotime( date_i18n( 'Y-m-d' ) ) ) + 86400;
-				$end_date   = $start_date + ( 86400 * 6 );
+			case 'this-month':
+				$start_date = strtotime( 'midnight', strtotime( 'first day of this month' ) );
+				$end_date   = strtotime( 'midnight', strtotime( 'last day of this month' ) ) + DAY_IN_SECONDS - 1;
 				break;
-			case '+30d':
-				$start_date = strtotime( 'midnight', strtotime( date_i18n( 'Y-m-d' ) ) ) + 86400;
-				$end_date   = $start_date + ( 86400 * 29 );
+			case 'last-month':
+				$start_date = strtotime( 'midnight', strtotime( 'first day of last month' ) );
+				$end_date   = strtotime( 'midnight', strtotime( 'last day of last month' ) ) + DAY_IN_SECONDS - 1;
+				break;
+			case 'last-3-months':
+				$start_date = strtotime( 'midnight', strtotime( 'first day of -3 month' ) );
+				$end_date   = strtotime( 'midnight', strtotime( 'last day of last month' ) ) + DAY_IN_SECONDS - 1;
+				break;
+			case 'last-6-months':
+				$start_date = strtotime( 'midnight', strtotime( 'first day of -6 month' ) );
+				$end_date   = strtotime( 'midnight', strtotime( 'last day of last month' ) ) + DAY_IN_SECONDS - 1;
+				break;
+			case 'last-12-months':
+				$start_date = strtotime( 'midnight', strtotime( 'first day of -12 month' ) );
+				$end_date   = strtotime( 'midnight', strtotime( 'last day of last month' ) ) + DAY_IN_SECONDS - 1;
+				break;
+			case 'this-year':
+				$start_date = strtotime( 'midnight', strtotime( gmdate( 'Y-01-01' ) ) );
+				$end_date   = strtotime( 'midnight', strtotime( gmdate( 'Y-12-31' ) ) ) + DAY_IN_SECONDS - 1;
+				break;
+			case 'last-year':
+				$last_year  = gmdate( 'Y' ) - 1;
+				$start_date = strtotime( 'midnight', strtotime( gmdate( $last_year . '-01-01' ) ) );
+				$end_date   = strtotime( 'midnight', strtotime( gmdate( $last_year . '-12-31' ) ) ) + DAY_IN_SECONDS - 1;
 				break;
 			case 'custom':
-				$end_date   = strtotime( 'midnight', strtotime( $settings['report_end'] ) );
-				$start_date = strtotime( 'midnight', strtotime( $settings['report_start'] ) );
+			default:
+				if ( empty( $settings['report_start'] ) || empty( $settings['report_end'] ) ) {
+					$start_date = $midnight - MONTH_IN_SECONDS;
+					$end_date   = $postnight;
+				} else {
+					$start_date = strtotime( 'midnight', strtotime( $settings['report_start'] ) );
+					$end_date   = strtotime( 'midnight', strtotime( $settings['report_end'] ) ) + DAY_IN_SECONDS - 1;
+				}
 				break;
-			default: // 30 days is the default.
-				$end_date   = strtotime( 'midnight', strtotime( date_i18n( 'Y-m-d' ) ) ) - 86400;
-				$start_date = $end_date - ( 86400 * 29 );
 		}
 
 		// Assemble order by string.

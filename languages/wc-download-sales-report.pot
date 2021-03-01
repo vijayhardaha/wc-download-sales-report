@@ -35,202 +35,214 @@ msgstr ""
 msgid "Download Sales Report"
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:175, ../includes/admin/class-wc-download-sales-report-admin.php:199, ../includes/admin/class-wc-download-sales-report-admin.php:557
+#: ../includes/admin/class-wc-download-sales-report-admin.php:175, ../includes/admin/class-wc-download-sales-report-admin.php:203, ../includes/admin/class-wc-download-sales-report-admin.php:563
 msgid "Product ID"
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:176, ../includes/admin/class-wc-download-sales-report-admin.php:563
+#: ../includes/admin/class-wc-download-sales-report-admin.php:176, ../includes/admin/class-wc-download-sales-report-admin.php:569
 msgid "Product SKU"
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:177, ../includes/admin/class-wc-download-sales-report-admin.php:566
+#: ../includes/admin/class-wc-download-sales-report-admin.php:177, ../includes/admin/class-wc-download-sales-report-admin.php:572
 msgid "Product Name"
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:178, ../includes/admin/class-wc-download-sales-report-admin.php:581
+#: ../includes/admin/class-wc-download-sales-report-admin.php:178, ../includes/admin/class-wc-download-sales-report-admin.php:587
 msgid "Product Categories"
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:179, ../includes/admin/class-wc-download-sales-report-admin.php:200, ../includes/admin/class-wc-download-sales-report-admin.php:572
+#: ../includes/admin/class-wc-download-sales-report-admin.php:179, ../includes/admin/class-wc-download-sales-report-admin.php:204, ../includes/admin/class-wc-download-sales-report-admin.php:578
 msgid "Quantity Sold"
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:180, ../includes/admin/class-wc-download-sales-report-admin.php:201, ../includes/admin/class-wc-download-sales-report-admin.php:575
+#: ../includes/admin/class-wc-download-sales-report-admin.php:180, ../includes/admin/class-wc-download-sales-report-admin.php:205, ../includes/admin/class-wc-download-sales-report-admin.php:581
 msgid "Gross Sales"
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:181, ../includes/admin/class-wc-download-sales-report-admin.php:202, ../includes/admin/class-wc-download-sales-report-admin.php:578
+#: ../includes/admin/class-wc-download-sales-report-admin.php:181, ../includes/admin/class-wc-download-sales-report-admin.php:206, ../includes/admin/class-wc-download-sales-report-admin.php:584
 msgid "Gross Sales (After Discounts)"
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:185
-msgid "Today"
-msgstr ""
-
-#: ../includes/admin/class-wc-download-sales-report-admin.php:186
-msgid "Yesterday"
-msgstr ""
-
-#: ../includes/admin/class-wc-download-sales-report-admin.php:187
-msgid "Previous 7 days (excluding today)"
-msgstr ""
-
-#: ../includes/admin/class-wc-download-sales-report-admin.php:188
-msgid "Previous 30 days (excluding today)"
-msgstr ""
-
-#: ../includes/admin/class-wc-download-sales-report-admin.php:189
-msgid "Current calendar month"
-msgstr ""
-
-#: ../includes/admin/class-wc-download-sales-report-admin.php:190
-msgid "Previous calendar month"
-msgstr ""
-
-#: ../includes/admin/class-wc-download-sales-report-admin.php:191
-msgid "Next 7 days (future dated orders)"
-msgstr ""
-
-#: ../includes/admin/class-wc-download-sales-report-admin.php:192
-msgid "Next 30 days (future dated orders)"
-msgstr ""
-
-#: ../includes/admin/class-wc-download-sales-report-admin.php:193
-msgid "Next calendar month (future dated orders)"
-msgstr ""
-
-#: ../includes/admin/class-wc-download-sales-report-admin.php:194
-msgid "All time"
-msgstr ""
-
-#: ../includes/admin/class-wc-download-sales-report-admin.php:195
-msgid "Custom date range"
-msgstr ""
-
-#: ../includes/admin/class-wc-download-sales-report-admin.php:206
-msgid "Ascending"
-msgstr ""
-
-#: ../includes/admin/class-wc-download-sales-report-admin.php:207
-msgid "Descending"
-msgstr ""
-
-#: ../includes/admin/class-wc-download-sales-report-admin.php:227
-msgid "Product Sales Report"
-msgstr ""
-
-#: ../includes/admin/class-wc-download-sales-report-admin.php:240
-msgid "Report Period"
-msgstr ""
-
-#: ../includes/admin/class-wc-download-sales-report-admin.php:250
-msgid "Choose the report orders period."
-msgstr ""
-
-#: ../includes/admin/class-wc-download-sales-report-admin.php:256
+#: ../includes/admin/class-wc-download-sales-report-admin.php:185, ../includes/admin/class-wc-download-sales-report-admin.php:260
 msgid "Custom Date Range"
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:260
-msgid "Start Date"
+#: ../includes/admin/class-wc-download-sales-report-admin.php:186
+msgid "Today Orders"
+msgstr ""
+
+#: ../includes/admin/class-wc-download-sales-report-admin.php:187
+msgid "Yesterday Orders"
+msgstr ""
+
+#: ../includes/admin/class-wc-download-sales-report-admin.php:188
+msgid "Last 3 Days Orders (excluding today)"
+msgstr ""
+
+#: ../includes/admin/class-wc-download-sales-report-admin.php:189
+msgid "Last 7 Days Orders (excluding today)"
+msgstr ""
+
+#: ../includes/admin/class-wc-download-sales-report-admin.php:190
+msgid "Last 14 Days Orders (excluding today)"
+msgstr ""
+
+#: ../includes/admin/class-wc-download-sales-report-admin.php:191
+msgid "Last 30 Days Orders (excluding today)"
+msgstr ""
+
+#: ../includes/admin/class-wc-download-sales-report-admin.php:192
+msgid "This Month Orders (including today)"
+msgstr ""
+
+#: ../includes/admin/class-wc-download-sales-report-admin.php:193
+msgid "Last Month Orders"
+msgstr ""
+
+#: ../includes/admin/class-wc-download-sales-report-admin.php:194
+msgid "Last 3 Months Orders (excluding current month)"
+msgstr ""
+
+#: ../includes/admin/class-wc-download-sales-report-admin.php:195
+msgid "Last 6 Months Orders (excluding current month)"
+msgstr ""
+
+#: ../includes/admin/class-wc-download-sales-report-admin.php:196
+msgid "Last 12 Months Orders (excluding current month)"
+msgstr ""
+
+#: ../includes/admin/class-wc-download-sales-report-admin.php:197
+msgid "This Year Orders"
+msgstr ""
+
+#: ../includes/admin/class-wc-download-sales-report-admin.php:198
+msgid "Last Year Orders"
+msgstr ""
+
+#: ../includes/admin/class-wc-download-sales-report-admin.php:199
+msgid "All time"
+msgstr ""
+
+#: ../includes/admin/class-wc-download-sales-report-admin.php:210
+msgid "Ascending"
+msgstr ""
+
+#: ../includes/admin/class-wc-download-sales-report-admin.php:211
+msgid "Descending"
+msgstr ""
+
+#: ../includes/admin/class-wc-download-sales-report-admin.php:231
+msgid "Product Sales Report"
+msgstr ""
+
+#: ../includes/admin/class-wc-download-sales-report-admin.php:244
+msgid "Report Period"
+msgstr ""
+
+#: ../includes/admin/class-wc-download-sales-report-admin.php:254
+msgid "Choose the report orders period."
 msgstr ""
 
 #: ../includes/admin/class-wc-download-sales-report-admin.php:264
+msgid "Start Date"
+msgstr ""
+
+#: ../includes/admin/class-wc-download-sales-report-admin.php:268
 msgid "End Date"
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:267
+#: ../includes/admin/class-wc-download-sales-report-admin.php:271
 msgid "Choose the custom date range for report orders period."
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:273
+#: ../includes/admin/class-wc-download-sales-report-admin.php:277
 msgid "Order Status"
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:287
+#: ../includes/admin/class-wc-download-sales-report-admin.php:291
 msgid "Choose the order statuses to be included in report."
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:293
+#: ../includes/admin/class-wc-download-sales-report-admin.php:297
 msgid "Include Products"
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:298
+#: ../includes/admin/class-wc-download-sales-report-admin.php:302
 msgid "All Products"
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:302
+#: ../includes/admin/class-wc-download-sales-report-admin.php:306
 msgid "Products in Categories"
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:319
+#: ../includes/admin/class-wc-download-sales-report-admin.php:323
 msgid "Product IDs"
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:321
+#: ../includes/admin/class-wc-download-sales-report-admin.php:325
 msgid "Use commas to separate multiple product IDs"
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:324
+#: ../includes/admin/class-wc-download-sales-report-admin.php:328
 msgid "Choose the products to be included in report.."
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:330
+#: ../includes/admin/class-wc-download-sales-report-admin.php:334
 msgid "Order By"
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:340
+#: ../includes/admin/class-wc-download-sales-report-admin.php:344
 msgid "Choose the report order field.."
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:346
+#: ../includes/admin/class-wc-download-sales-report-admin.php:350
 msgid "Order"
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:356
+#: ../includes/admin/class-wc-download-sales-report-admin.php:360
 msgid "Choose the report order type."
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:362
+#: ../includes/admin/class-wc-download-sales-report-admin.php:366
 msgid "Report Fields"
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:376
+#: ../includes/admin/class-wc-download-sales-report-admin.php:380
 msgid "Choose the fields to be included in report."
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:382
+#: ../includes/admin/class-wc-download-sales-report-admin.php:386
 msgid "Exclude free products"
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:385
+#: ../includes/admin/class-wc-download-sales-report-admin.php:389
 msgid "Yes"
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:386
+#: ../includes/admin/class-wc-download-sales-report-admin.php:390
 msgid "No"
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:387
+#: ../includes/admin/class-wc-download-sales-report-admin.php:391
 msgid "Choose if free products should be include or exclude."
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:392
+#: ../includes/admin/class-wc-download-sales-report-admin.php:396
 msgid "View Report"
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:393, ../includes/admin/class-wc-download-sales-report-admin.php:394
+#: ../includes/admin/class-wc-download-sales-report-admin.php:397, ../includes/admin/class-wc-download-sales-report-admin.php:398
 msgid "Download Report"
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:478
+#: ../includes/admin/class-wc-download-sales-report-admin.php:484
 msgid "No Records found"
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:560
+#: ../includes/admin/class-wc-download-sales-report-admin.php:566
 msgid "Variation ID"
 msgstr ""
 
-#: ../includes/admin/class-wc-download-sales-report-admin.php:569
+#: ../includes/admin/class-wc-download-sales-report-admin.php:575
 msgid "Variation Attributes"
 msgstr ""
